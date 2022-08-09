@@ -4,7 +4,8 @@ import { TbSearch as SearchIcon } from 'react-icons/tb';
 import { BsBell as AlarmIcon } from 'react-icons/bs';
 import { ReactComponent as Logo } from '../../static/logo.svg';
 import { NavLink } from 'react-router-dom';
-import ModalFrame from '../uploadpost/ModalFrame';
+import Upload from '../uploadpost/Upload';
+import ModalUpload from '../uploadpost/ModalUpload';
 
 const Header = () => {
   const [isModal, setIsModal] = useState(false);
@@ -47,7 +48,9 @@ const Header = () => {
         </OthersWrapper>
       </Wrapper>
       {isModal && (
-        <ModalFrame handleModal={handleModal}>{/* <Upload /> */}</ModalFrame>
+        <ModalUpload handleModal={handleModal}>
+          <Upload />
+        </ModalUpload>
       )}
     </>
   );
