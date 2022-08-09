@@ -22,7 +22,7 @@ const SelectF = (props) => {
     },
     {
       id: '5',
-      name: '필름5',
+      name: 'Kodak Retina Reflex III',
     },
     {
       id: '6',
@@ -125,6 +125,20 @@ const DropdownMenu = styled.ul`
 
   padding-left: 8px;
   padding-right: 16px;
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d9d9d9;
+  }
 `;
 
 const DropdownItem = styled.li`

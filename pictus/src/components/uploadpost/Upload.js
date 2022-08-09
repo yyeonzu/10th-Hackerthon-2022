@@ -2,8 +2,16 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ImageIcon } from '../../static/imageicon.svg';
 import axios from 'axios';
+import ModalSelect from '../selectbox/ModalSelect';
+import SelectC from '../selectbox/SelectC';
+import SelectF from '../selectbox/SelectF';
 
 const Upload = () => {
+  const [isModalC, setIsModalC] = useState(false);
+  const [isModalF, setIsModalF] = useState(false);
+  const [submitC, setSubmitC] = useState('');
+  const [submitF, setSubmitF] = useState('');
+
   const imageInput = useRef();
   const [imageBase64, setImageBase64] = useState('');
   const [imageFile, setImageFile] = useState('');
@@ -12,6 +20,12 @@ const Upload = () => {
   const [camera, setCamera] = useState('');
   const [film, setFilm] = useState('');
 
+  const handleModalC = () => {
+    setIsModalC(!isModalC);
+  };
+  const handleModalF = () => {
+    setIsModalF(!isModalF);
+  };
   const onClickImgUpload = () => {
     imageInput.current.click();
   };
@@ -118,7 +132,17 @@ const Upload = () => {
         </ImageArea>
         <DetailArea>
           <DetailBox>
-            <SelectDetail></SelectDetail>
+            <SelectDetail>
+              <SelectCamera onClick={handleModalC}>
+                {submitC === '' ? '카메라' : submitC}
+              </SelectCamera>
+              <CameraCSS />
+              <SelectFilm onClick={handleModalF}>
+                {' '}
+                {submitF === '' ? '필름' : submitF}
+              </SelectFilm>
+              <FilmCSS />
+            </SelectDetail>
           </DetailBox>
 
           <DetailBox>
@@ -143,6 +167,24 @@ const Upload = () => {
           <SubmitButton onClick={submitPost}>제출버튼</SubmitButton>
         </DetailArea>
       </Wrapper>
+      {isModalC && (
+        <ModalSelect handleModal={handleModalC}>
+          <SelectC
+            handleModalC={handleModalC}
+            submitC={submitC}
+            setSubmitC={setSubmitC}
+          />
+        </ModalSelect>
+      )}
+      {isModalF && (
+        <ModalSelect handleModal={handleModalF}>
+          <SelectF
+            handleModalF={handleModalF}
+            submitF={submitF}
+            setSubmitF={setSubmitF}
+          />
+        </ModalSelect>
+      )}
     </>
   );
 };
@@ -214,6 +256,64 @@ const SelectDetail = styled.div`
   justify-content: center;
   align-items: center;
   height: 140px;
+`;
+
+const SelectCamera = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-weight: 400;
+
+  top: 100px;
+  padding-left: 20px;
+  padding-right: 10px;
+`;
+
+const SelectFilm = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-weight: 400;
+
+  top: 150px;
+  padding-left: 20px;
+  padding-right: 10px;
+`;
+
+const CameraCSS = styled.div`
+  position: absolute;
+  top: 100px;
+  margin-right: 138px;
+
+  height: 40px;
+  width: 10px;
+  background-color: #ffb800;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+`;
+
+const FilmCSS = styled.div`
+  position: absolute;
+  top: 150px;
+  margin-right: 138px;
+
+  height: 40px;
+  width: 10px;
+  background-color: #5f2d9a;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 `;
 
 const InputDetail = styled.textarea`

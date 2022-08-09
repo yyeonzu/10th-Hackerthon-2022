@@ -52,11 +52,11 @@ const Background = styled.div`
 
 const ModalBlock = styled.div`
   position: absolute;
-  top: 3.5rem;
+  top: 40px;
   border-radius: 10px;
   padding: 1.5rem;
   background-color: #ffffff;
-  width: 80%;
+  width: 1200px;
   margin: 0 auto;
   /* @media (max-width: 1120px) {
     width: 50rem;

@@ -6,7 +6,7 @@ const Select = (props) => {
   const DATABASE = [
     {
       id: '1',
-      name: '카메라를 선택하세요',
+      name: '카메라 1',
     },
     {
       id: '2',
@@ -22,7 +22,7 @@ const Select = (props) => {
     },
     {
       id: '5',
-      name: '카메라를 선택하세요',
+      name: 'Kodak Retina Reflex III',
     },
     {
       id: '6',
@@ -38,7 +38,7 @@ const Select = (props) => {
     },
     {
       id: '9',
-      name: '카메라를 선택하세요',
+      name: '카메라 1',
     },
     {
       id: '10',
@@ -50,6 +50,62 @@ const Select = (props) => {
     },
     {
       id: '12',
+      name: '카메라 4',
+    },
+    {
+      id: '13',
+      name: '카메라 1',
+    },
+    {
+      id: '14',
+      name: '카메라 2',
+    },
+    {
+      id: '15',
+      name: '카메라 3',
+    },
+    {
+      id: '16',
+      name: '카메라 4',
+    },
+    {
+      id: '17',
+      name: '카메라 1',
+    },
+    {
+      id: '18',
+      name: '카메라 2',
+    },
+    {
+      id: '19',
+      name: '카메라 3',
+    },
+    {
+      id: '20',
+      name: '카메라 4',
+    },
+    {
+      id: '21',
+      name: '카메라 3',
+    },
+    {
+      id: '22',
+      name: '카메라 4',
+    },
+    {
+      id: '23',
+      name: '카메라 1',
+    },
+    {
+      id: '24',
+      name: '카메라 2',
+    },
+    {
+      id: '25',
+      name: '카메라 3',
+    },
+    {
+      id: '26',
       name: '카메라 4',
     },
   ];
@@ -138,9 +194,27 @@ const DropdownMenu = styled.ul`
   border-radius: 10px;
   font-size: 16px;
   font-weight: 300;
-
   padding-left: 8px;
   padding-right: 16px;
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d9d9d9;
+  }
+
+  /* &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  } */
 `;
 
 const DropdownItem = styled.li`
