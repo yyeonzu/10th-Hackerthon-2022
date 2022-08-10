@@ -5,20 +5,19 @@ import axios from 'axios';
 import ModalSelect from '../selectbox/ModalSelect';
 import SelectC from '../selectbox/SelectC';
 import SelectF from '../selectbox/SelectF';
+import TagArea from './TagArea';
+import ContentArea from './ContentArea';
 
 const Upload = () => {
+  const imageInput = useRef();
   const [isModalC, setIsModalC] = useState(false);
   const [isModalF, setIsModalF] = useState(false);
-  const [submitC, setSubmitC] = useState('');
-  const [submitF, setSubmitF] = useState('');
-
-  const imageInput = useRef();
   const [imageBase64, setImageBase64] = useState('');
   const [imageFile, setImageFile] = useState('');
-  const [tag, setTag] = useState('');
-  const [content, setContent] = useState('');
-  const [camera, setCamera] = useState('');
-  const [film, setFilm] = useState('');
+  const [submitC, setSubmitC] = useState('');
+  const [submitF, setSubmitF] = useState('');
+  const [submitTag, setSubmitTag] = useState([]);
+  const [submitContent, setSubmitContent] = useState('');
 
   const handleModalC = () => {
     setIsModalC(!isModalC);
@@ -33,28 +32,6 @@ const Upload = () => {
   const imageHandler = (e) => {
     const newImage = e.target.files[0];
     setImageFile(newImage);
-  };
-
-  const tagHandler = (e) => {
-    const newTag = e.target.value;
-    setTag(newTag);
-  };
-
-  const contentHandler = (e) => {
-    const newContent = e.target.value;
-    setContent(newContent);
-  };
-
-  const cameraHandler = (e) => {
-    const newCamera = e.target.value;
-    setCamera(newCamera);
-    console.log(newCamera);
-  };
-
-  const filmHandler = (e) => {
-    const newfilm = e.target.value;
-    setFilm(newfilm);
-    console.log(newfilm);
   };
 
   const previewHandler = (e) => {
@@ -74,24 +51,28 @@ const Upload = () => {
   const submitPost = async (e) => {
     e.preventDefault();
     console.log(imageFile);
-    console.log(tag);
-    console.log(content);
+    console.log(submitC);
+    console.log(submitF);
+    console.log(submitTag);
+    console.log(submitContent);
+
+    alert(submitC + '\n' + submitF + '\n' + submitTag + '\n' + submitContent);
 
     const formData = new FormData();
     formData.append('file', imageFile);
-    formData.append('tag', tag);
-    formData.append('content', content);
-    // formData.append('camera', camera);
-    // formData.append('film', film);
+    formData.append('camera', submitC);
+    formData.append('film', submitF);
+    formData.append('tag', submitTag);
+    formData.append('content', submitContent);
 
-    await axios({
-      method: 'post',
-      url: 'http://localhost:8888/posts',
-      data: formData,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    // await axios({
+    //   method: 'post',
+    //   url: 'http://localhost:8888/posts',
+    //   data: formData,
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    // });
   };
 
   return (
@@ -138,7 +119,6 @@ const Upload = () => {
               </SelectCamera>
               <CameraCSS />
               <SelectFilm onClick={handleModalF}>
-                {' '}
                 {submitF === '' ? '필름' : submitF}
               </SelectFilm>
               <FilmCSS />
@@ -148,19 +128,13 @@ const Upload = () => {
           <DetailBox>
             <DetailWrapper>
               <span style={{ fontWeight: '500' }}> 태그</span>
-              <InputDetail
-                placeholder='태그를 입력하세요'
-                onChange={tagHandler}
-              ></InputDetail>
+              <TagArea setSubmitTag={setSubmitTag} />
             </DetailWrapper>
           </DetailBox>
           <DetailBox>
             <DetailWrapper>
               <span style={{ fontWeight: '500' }}> 내용</span>
-              <InputDetail
-                placeholder='내용을 입력하세요'
-                onChange={contentHandler}
-              ></InputDetail>
+              <ContentArea setSubmitContent={setSubmitContent} />
             </DetailWrapper>
           </DetailBox>
           <CommentWrapper>{/* <CommentToggle /> */}</CommentWrapper>
@@ -215,7 +189,7 @@ const ImageFile = styled.input`
 `;
 
 const Preview = styled.div`
-  z-index: 200;
+  z-index: 100;
   position: absolute;
   box-sizing: border-box;
   border-radius: 10px;
