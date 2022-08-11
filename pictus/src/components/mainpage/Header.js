@@ -42,9 +42,9 @@ const Header = () => {
           <NavLink to='/mypage'>
             <MyPageButton></MyPageButton>
           </NavLink>
-          <NavLink to='/signin'>
+          {/* <NavLink to='/signin'>
             <LoginButton>로그인</LoginButton>
-          </NavLink>
+          </NavLink> */}
         </OthersWrapper>
       </Wrapper>
       {isModal && (
@@ -83,7 +83,7 @@ const OthersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 480px;
+  width: 420px;
   //border: solid;
 `;
 

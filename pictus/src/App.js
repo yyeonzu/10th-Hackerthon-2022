@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './static/font/FontPretendard.css';
@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import LoginBox from './components/signin/LoginBox';
 import SignUpBox from './components/signup/SignupBox';
+import InitialPage from './pages/InitialPage';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -24,12 +25,18 @@ const WrapperScreen = styled.div`
 `;
 
 const Router = () => {
+  const [isLogin, setIsLogin] = useState(true);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage />} />
+        {isLogin ? (
+          <Route path='/' element={<MainPage />} />
+        ) : (
+          <Route path='/' element={<InitialPage />} />
+        )}
+
         <Route path='/mypage' element={<MyPage />} />
-        <Route path='/signin' element={<LoginBox />} />
+        {/* <Route path='/signin' element={<LoginBox />} /> */}
         <Route path='signup' element={<SignUpBox />} />
       </Routes>
       <Routes></Routes>

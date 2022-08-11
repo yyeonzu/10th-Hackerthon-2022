@@ -23,6 +23,14 @@ const SelectHeader = () => {
     document.body.style.overflow = 'unset';
   };
 
+  const submitSelect = async (e) => {
+    e.preventDefault();
+    console.log(submitC);
+    console.log(submitF);
+
+    alert(submitC + '\n' + submitF);
+  };
+
   return (
     <>
       <Wrapper>
@@ -40,7 +48,7 @@ const SelectHeader = () => {
             </SelectFilm>
             <ArrowDownIcon color='#B6B4B4' cursor='pointer' size={20} />
           </FilmWrapper>
-          <SelectButton>검색</SelectButton>
+          <SelectButton onClick={submitSelect}>검색</SelectButton>
         </SelectBoxWrapper>
       </Wrapper>
       {isModalC && (
