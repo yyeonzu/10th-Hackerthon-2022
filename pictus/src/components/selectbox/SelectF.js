@@ -91,7 +91,7 @@ export default SelectF;
 const Title = styled.div`
   font-size: 30px;
   font-weight: 600;
-  color: #ffb800;
+  color: #ff7043cc;
 
   margin-bottom: 16px;
 `;
@@ -146,7 +146,7 @@ const DropdownItem = styled.li`
   border-radius: 4px;
 
   &:hover {
-    background-color: #ffb800;
+    background-color: #ff7043cc;
     color: #ffffff;
     font-weight: 400;
   }
@@ -159,7 +159,7 @@ const ItemName = styled.span``;
 const SubmitButton = styled.button`
   width: 80px;
   height: 40px;
-  background-color: #ffb800;
+  background-color: #ff7043cc;
   border-radius: 10px;
   border: none;
   color: #ffffff;

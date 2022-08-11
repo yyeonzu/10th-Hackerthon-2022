@@ -15,6 +15,8 @@ const TagArea = (props) => {
     setTagList([...tagList, tagItem]);
     props.setSubmitTag(tagList);
     setTagItem('');
+    console.log(tagItem);
+    console.log(tagList);
   };
 
   const deleteTagItem = (e) => {
