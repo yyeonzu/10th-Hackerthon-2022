@@ -5,11 +5,15 @@ import { IoIosCheckbox as CheckBoxTrue } from 'react-icons/io';
 import { MdKeyboardArrowRight as ArrowRight } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 
-const LoginBox = () => {
+const LoginBox = (props) => {
+  const onSubmit = () => {
+    props.setIsSignup(true);
+  };
   return (
     <>
       <Wrapper>
         <Form>
+          <TextLarger>로그인</TextLarger>
           <TextLarge>이메일</TextLarge>
           <Input placeholder='아이디를 입력하세요' type='text'></Input>
           <TextLarge>비밀번호</TextLarge>
@@ -26,9 +30,10 @@ const LoginBox = () => {
             </BoxWrapper>
           </FindPW>
         </Form>
-        <NavLink to='/signup'>
-          <SignUpButton>회원가입버튼임</SignUpButton>
-        </NavLink>
+        <SignUpdiv>
+          아직 Pictus 회원이 아니세요?
+          <SignUpButton onClick={onSubmit}>회원가입하기</SignUpButton>
+        </SignUpdiv>
       </Wrapper>
     </>
   );
@@ -38,17 +43,27 @@ export default LoginBox;
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  border: solid;
+
+  margin-top: 150px;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 30px;
 `;
+
+const TextLarger = styled.span`
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 24px;
+`;
+
 const Input = styled.input`
-  width: 300px;
+  width: 350px;
   height: 40px;
   border: 1px solid #747474;
   border-radius: 10px;
@@ -63,19 +78,19 @@ const TextLarge = styled.span`
 `;
 
 const LoginButton = styled.button`
-  width: 300px;
+  width: 350px;
   height: 40px;
   border: none;
   border-radius: 10px;
-  background-color: #5f2d9a;
+  background-color: #ffb800;
   color: #ffffff;
-
+  cursor: pointer;
   margin-top: 24px;
   margin-bottom: 8px;
 `;
 
 const FindPW = styled.div`
-  width: 300px;
+  width: 350px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -101,8 +116,26 @@ const TextSmall = styled.span`
   font-size: 15px;
   line-height: 29px;
   color: #747474;
+  cursor: pointer;
 `;
 
-const SignUpButton = styled.button`
-  border: solid 1px black;
+const SignUpdiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 270px;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #747474;
+`;
+
+const SignUpButton = styled.div`
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: black;
+  text-decoration-line: underline;
+  text-decoration-color: black;
 `;
