@@ -1,0 +1,153 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "image": "width1.jpg",
+      "tag": [
+        "#안녕",
+        "#하이"
+      ],
+      "content": [
+        "내용"
+      ]
+    },
+    {
+      "id": 2,
+      "image": "width2.jpg",
+      "tag": [
+        "#안녕2",
+        "#하이2"
+      ],
+      "content": [
+        "내용2"
+      ]
+    },
+    {
+      "id": 3,
+      "image": "width1.jpg",
+      "tag": [
+        "#안녕3",
+        "#하이3"
+      ],
+      "content": [
+        "내용3"
+      ]
+    },
+    {
+      "id": 4,
+      "image": "width4.jpg",
+      "tag": [
+        "#안녕4",
+        "#하이4"
+      ],
+      "content": [
+        "내용4"
+      ]
+    },
+    {
+      "id": 21,
+      "image": "width4.jpg",
+      "tag": [
+        "#안녕6",
+        "#하이6"
+      ],
+      "content": [
+        "내용6"
+      ]
+    },
+    {
+      "id": 5,
+      "image": "height.jpg",
+      "tag": [
+        "#안녕5",
+        "#하이5"
+      ],
+      "content": [
+        "내용5"
+      ]
+    },
+    {
+      "id": 6,
+      "image": "width1.jpg",
+      "tag": [
+        "#안녕",
+        "#하이"
+      ],
+      "content": [
+        "내용"
+      ]
+    },
+    {
+      "id": 7,
+      "image": "width2.jpg",
+      "tag": [
+        "#안녕2",
+        "#하이2"
+      ],
+      "content": [
+        "내용2"
+      ]
+    },
+    {
+      "id": 8,
+      "image": "width1.jpg",
+      "tag": [
+        "#안녕3",
+        "#하이3"
+      ],
+      "content": [
+        "내용3"
+      ]
+    },
+    {
+      "id": 9,
+      "image": "width4.jpg",
+      "tag": [
+        "#안녕4",
+        "#하이4"
+      ],
+      "content": [
+        "내용4"
+      ]
+    },
+    {
+      "id": 10,
+      "image": "width4.jpg",
+      "tag": [
+        "#안녕6",
+        "#하이6"
+      ],
+      "content": [
+        "내용6"
+      ]
+    },
+    {
+      "id": 11,
+      "image": "height.jpg",
+      "tag": [
+        "#안녕5",
+        "#하이5"
+      ],
+      "content": [
+        "내용5"
+      ]
+    },
+    {
+      "id": 22
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "user": {
+    "email": "",
+    "password": ""
+  }
+}

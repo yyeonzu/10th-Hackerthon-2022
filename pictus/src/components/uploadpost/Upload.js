@@ -50,11 +50,6 @@ const Upload = () => {
   };
   const submitPost = async (e) => {
     e.preventDefault();
-    console.log(imageFile);
-    console.log(submitC);
-    console.log(submitF);
-    console.log(submitTag);
-    console.log(submitContent);
 
     alert(submitC + '\n' + submitF + '\n' + submitTag + '\n' + submitContent);
 
@@ -65,14 +60,14 @@ const Upload = () => {
     formData.append('tag', submitTag);
     formData.append('content', submitContent);
 
-    // await axios({
-    //   method: 'post',
-    //   url: 'http://localhost:8888/posts',
-    //   data: formData,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    // });
+    await axios({
+      method: 'post',
+      url: 'http://localhost:8888/posts',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   };
 
   return (
@@ -195,10 +190,13 @@ const Preview = styled.div`
   border-radius: 10px;
   width: 700px;
   height: 600px;
+  display: flex;
+  text-align: center;
+
   img {
     width: 100%;
-    height: 100%;
     border-radius: 10px;
+    object-fit: contain;
   }
 `;
 
@@ -285,7 +283,7 @@ const FilmCSS = styled.div`
 
   height: 40px;
   width: 10px;
-  background-color: #5f2d9a;
+  background-color: #ff7043cc;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 `;

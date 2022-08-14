@@ -5,7 +5,7 @@ import SelectC from '../selectbox/SelectC';
 import SelectF from '../selectbox/SelectF';
 import { IoIosArrowDown as ArrowDownIcon } from 'react-icons/io';
 
-const SelectHeader = () => {
+const SelectHeader = (props) => {
   const [isModalC, setIsModalC] = useState(false);
   const [isModalF, setIsModalF] = useState(false);
   const [submitC, setSubmitC] = useState('');
@@ -23,12 +23,11 @@ const SelectHeader = () => {
     document.body.style.overflow = 'unset';
   };
 
+  // axios 추가해야하는 영역
   const submitSelect = async (e) => {
     e.preventDefault();
-    console.log(submitC);
-    console.log(submitF);
-
-    alert(submitC + '\n' + submitF);
+    props.setCamera(submitC);
+    props.setFilm(submitF);
   };
 
   return (

@@ -25,19 +25,15 @@ const WrapperScreen = styled.div`
 `;
 
 const Router = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <BrowserRouter>
       <Routes>
-        {isLogin ? (
-          <Route path='/' element={<MainPage />} />
-        ) : (
-          <Route path='/' element={<InitialPage />} />
-        )}
-
+        <Route path='/mainpage' element={<MainPage />} />
+        <Route path='/' element={<InitialPage />} />
         <Route path='/mypage' element={<MyPage />} />
-        {/* <Route path='/signin' element={<LoginBox />} /> */}
-        <Route path='signup' element={<SignUpBox />} />
+        <Route path='/signup' element={<SignUpBox />} />
       </Routes>
       <Routes></Routes>
     </BrowserRouter>

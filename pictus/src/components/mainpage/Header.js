@@ -20,7 +20,7 @@ const Header = () => {
     <>
       <Wrapper>
         <LogoWrapper>
-          <NavLink to='/'>
+          <NavLink to='/mainpage'>
             <LogoButton>
               <Logo />
             </LogoButton>
