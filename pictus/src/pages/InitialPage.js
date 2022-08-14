@@ -4,9 +4,11 @@ import { ReactComponent as Logo2 } from '../static/logo2.svg';
 import { ReactComponent as Picture } from '../static/indexPic.svg';
 import LoginBox from '../components/signin/LoginBox';
 import SignUpBox from '../components/signup/SignupBox';
+import { useNavigate } from 'react-router-dom';
 
-const InitialPage = () => {
+const InitialPage = (props) => {
   const [isSignup, setIsSignup] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>

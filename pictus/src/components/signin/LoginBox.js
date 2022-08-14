@@ -1,24 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { IoIosCheckboxOutline as CheckBoxfalse } from 'react-icons/io';
 import { IoIosCheckbox as CheckBoxTrue } from 'react-icons/io';
 import { MdKeyboardArrowRight as ArrowRight } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import LoginAPI from '../../api/user';
 
 const LoginBox = (props) => {
-  const onSubmit = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  // 회원가입으로 이동
+  const onChange = () => {
     props.setIsSignup(true);
   };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    axios
+      .post('https://jain5379.pythonanywhere.com/users/login/', {
+        username: email,
+        password: password,
+      })
+      .then((response) => {
+        // console.log(response);
+        alert('성공');
+        navigate('/mainpage');
+      })
+      .catch((error) => {
+        // console.log(response);
+        alert('실패');
+      });
+
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <>
       <Wrapper>
         <Form>
           <TextLarger>로그인</TextLarger>
           <TextLarge>이메일</TextLarge>
-          <Input placeholder='아이디를 입력하세요' type='text'></Input>
+
+          <Input
+            name='email'
+            value={email}
+            type='text'
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete='off'
+            placeholder='아이디를 입력하세요'
+          ></Input>
           <TextLarge>비밀번호</TextLarge>
-          <Input placeholder='비밀번호를 입력하세요' type='password'></Input>
-          <LoginButton type='submit'>로그인</LoginButton>
+          <Input
+            name='password'
+            value={password}
+            type='password'
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete='off'
+            placeholder='비밀번호를 입력하세요'
+          ></Input>
+          <LoginButton onClick={onSubmit}>로그인</LoginButton>
           <FindPW>
             <BoxWrapper>
               <CheckBox />
@@ -32,7 +78,9 @@ const LoginBox = (props) => {
         </Form>
         <SignUpdiv>
           아직 Pictus 회원이 아니세요?
-          <SignUpButton onClick={onSubmit}>회원가입하기</SignUpButton>
+          <SignUpButton type='submit' onClick={onChange}>
+            회원가입하기
+          </SignUpButton>
         </SignUpdiv>
       </Wrapper>
     </>

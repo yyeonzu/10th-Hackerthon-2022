@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import { ReactComponent as Logo } from '../../static/logo.svg';
 
 const SignUpBox = (props) => {
-  const onBackClick = () => {
-    props.setIsSignup(false);
-  };
-
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [matchPwd, setMatchPwd] = useState('');
   const [matchFocus, setMatchFocus] = useState(false);
+
+  const onBackClick = () => {
+    props.setIsSignup(false);
+  };
 
   const RegExp = (str, type) => {
     let REGEX = {
@@ -47,14 +47,22 @@ const SignUpBox = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validUsername && validEmail && validPwd && validMatch) {
-      alert(username + '\n' + email + '\n' + pwd);
+      alert(username + '\n' + email + '\n' + pwd + '\n' + matchPwd);
       onBackClick();
-      const data = {
-        username: username,
-        email: email,
-        password: pwd,
-      };
-      axios.post('url', data).then(() => {});
+      const data = {};
+      axios
+        .post('https://jain5379.pythonanywhere.com/users/register/', {
+          username: username,
+          password: pwd,
+          password2: matchPwd,
+          email: email,
+        })
+        .then((response) => {
+          alert('로그인 성공');
+        })
+        .catch((error) => {
+          alert('다시 로그인해주세요');
+        });
     } else {
       alert('회원 정보를 다시 확인해주세요');
     }
