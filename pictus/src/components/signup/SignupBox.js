@@ -58,10 +58,11 @@ const SignUpBox = (props) => {
           email: email,
         })
         .then((response) => {
-          alert('로그인 성공');
+          console.log(response.data);
+          alert('회원가입 성공');
         })
         .catch((error) => {
-          alert('다시 로그인해주세요');
+          alert('다시 회원가입하세요');
         });
     } else {
       alert('회원 정보를 다시 확인해주세요');

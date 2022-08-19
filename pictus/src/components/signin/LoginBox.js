@@ -23,16 +23,17 @@ const LoginBox = (props) => {
 
     axios
       .post('https://jain5379.pythonanywhere.com/users/login/', {
-        username: email,
+        email: email,
         password: password,
       })
       .then((response) => {
-        // console.log(response);
-        alert('성공');
-        navigate('/mainpage');
+        if (response.data.message === '로그인 성공') {
+          console.log(response.data.data.email); // 1234@naver.com 으로 아주 잘 나옴
+          alert('로그인 성공');
+          navigate('/mainpage');
+        }
       })
       .catch((error) => {
-        // console.log(response);
         alert('실패');
       });
 
