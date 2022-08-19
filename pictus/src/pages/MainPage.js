@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Header from '../components/mainpage/Header';
 import MainBorad from '../components/mainpage/MainBoard';
 import SelectedBar from '../components/mainpage/SelectedBar';

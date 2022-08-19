@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { CgClose as CloseIcon } from 'react-icons/cg';
-import { VscHeart as HeartIcon } from 'react-icons/vsc';
+import { IoHeartOutline as HeartIcon } from 'react-icons/io5';
+import { AiOutlineClockCircle as TimerIcon } from 'react-icons/ai';
 import { IoIosArrowDown as ArrowDownIcon } from 'react-icons/io';
 
 const SelectedBar = (props) => {
+  const [item, setItem] = useState(false);
+  const [isSelect, setIsSelect] = useState(false);
+
   return (
     <>
       <Wrapper>
@@ -30,10 +34,47 @@ const SelectedBar = (props) => {
           </BoxWrapper>
         </SelectedWrapper>
         <ViewSortWrapper>
-          <SortBox>
-            <HeartIcon size={16} />
-            최신순으로 보기 <ArrowDownIcon size={16} />
-          </SortBox>
+          <DropDownBody onClick={() => setIsSelect(!isSelect)}>
+            {item ? (
+              <ItemName>
+                <SortBox>
+                  <HeartIcon size={17} />
+                  추천순으로 보기 <ArrowDownIcon size={16} />
+                </SortBox>
+              </ItemName>
+            ) : (
+              <ItemName>
+                <SortBox>
+                  <TimerIcon size={17} />
+                  최신순으로 보기 <ArrowDownIcon size={16} />
+                </SortBox>
+              </ItemName>
+            )}
+          </DropDownBody>
+          {isSelect && (
+            <DropDownMenu>
+              <DropDownItem
+                onClick={() => {
+                  setItem(false);
+                  setIsSelect(false);
+                }}
+              >
+                <TimerIcon size={17} />
+                최신순으로 보기
+                {/* <ArrowDownIcon size={16} /> */}
+              </DropDownItem>
+              <DropDownItem
+                onClick={() => {
+                  setItem(true);
+                  setIsSelect(false);
+                }}
+              >
+                <HeartIcon size={17} />
+                추천순으로 보기
+                {/* <ArrowDownIcon size={16} /> */}
+              </DropDownItem>
+            </DropDownMenu>
+          )}
         </ViewSortWrapper>
       </Wrapper>
     </>
@@ -94,6 +135,7 @@ const ViewSortWrapper = styled.div``;
 const SortBox = styled.button`
   width: 160px;
   height: 40px;
+  font-size: 14px;
   background-color: #ffffff;
   border: 1px solid #b6b4b4;
   border-radius: 10px;
@@ -105,5 +147,45 @@ const SortBox = styled.button`
   &:hover {
     color: #ffb800;
     border: 1px solid #ffb800;
+  }
+`;
+
+const DropDownBody = styled.div``;
+
+const ItemName = styled.div``;
+
+const DropDownMenu = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: #ffffff;
+  margin-top: 4px;
+  position: absolute;
+  z-index: 100;
+  width: 160px;
+  height: 70px;
+  border: 1px solid #b6b4b4;
+  border-radius: 10px;
+  box-sizing: border-box;
+  list-style: none;
+  padding-left: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+`;
+
+const DropDownItem = styled.li`
+  padding-top: 4px;
+  margin-left: 8px;
+  width: 120px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  color: #747474;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffb800;
+    font-weight: 400;
   }
 `;

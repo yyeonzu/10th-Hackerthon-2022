@@ -42,9 +42,6 @@ const Header = () => {
           <NavLink to='/mypage'>
             <MyPageButton></MyPageButton>
           </NavLink>
-          {/* <NavLink to='/signin'>
-            <LoginButton>로그인</LoginButton>
-          </NavLink> */}
         </OthersWrapper>
       </Wrapper>
       {isModal && (
