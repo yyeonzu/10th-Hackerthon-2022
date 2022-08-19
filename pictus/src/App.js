@@ -4,9 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './static/font/FontPretendard.css';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
-import LoginBox from './components/signin/LoginBox';
-import SignUpBox from './components/signup/SignupBox';
 import InitialPage from './pages/InitialPage';
+import ScrapPage from './pages/ScrapPage';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -30,10 +29,10 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/mainpage' element={<MainPage />} />
         <Route path='/' element={<InitialPage />} />
+        <Route path='/mainpage' element={<MainPage />} />
         <Route path='/mypage' element={<MyPage />} />
-        <Route path='/signup' element={<SignUpBox />} />
+        <Route path='/scrappage' element={<ScrapPage />} />
       </Routes>
       <Routes></Routes>
     </BrowserRouter>
