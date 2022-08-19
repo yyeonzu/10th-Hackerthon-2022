@@ -13,24 +13,13 @@
     },
     {
       "id": 2,
-      "image": "width2.jpg",
+      "image": "height.jpg",
       "tag": [
         "#안녕2",
         "#하이2"
       ],
       "content": [
         "내용2"
-      ]
-    },
-    {
-      "id": 3,
-      "image": "width1.jpg",
-      "tag": [
-        "#안녕3",
-        "#하이3"
-      ],
-      "content": [
-        "내용3"
       ]
     },
     {
@@ -45,8 +34,8 @@
       ]
     },
     {
-      "id": 21,
-      "image": "width4.jpg",
+      "id": 12,
+      "image": "width8.jpg",
       "tag": [
         "#안녕6",
         "#하이6"
@@ -101,7 +90,7 @@
     },
     {
       "id": 9,
-      "image": "width4.jpg",
+      "image": "width10.jpg",
       "tag": [
         "#안녕4",
         "#하이4"
@@ -133,21 +122,154 @@
       ]
     },
     {
-      "id": 22
-    }
-  ],
-  "comments": [
+      "id": 13,
+      "image": "width5.jpg"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 14,
+      "image": "width6.jpg"
+    },
+    {
+      "id": 15,
+      "image": "width7.jpg"
+    },
+    {
+      "id": 16,
+      "image": "width8.jpg"
+    },
+    {
+      "id": 17,
+      "image": "width9.jpg"
+    },
+    {
+      "id": 18,
+      "image": "width10.jpg"
+    },
+    {
+      "id": 19,
+      "image": "width11.jpg"
+    },
+    {
+      "id": 20,
+      "image": "width12.jpg"
+    },
+    {
+      "id": 21,
+      "image": "width13.jpg"
+    },
+    {
+      "id": 22,
+      "image": "width14.jpg"
+    },
+    {
+      "id": 23,
+      "image": "width4.jpg"
+    },
+    {
+      "id": 24,
+      "image": "width7.jpg"
+    },
+    {
+      "id": 25,
+      "image": "width8.jpg"
+    },
+    {
+      "id": 26,
+      "image": "width9.jpg"
+    },
+    {
+      "id": 27,
+      "image": "width11.jpg"
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
-  "user": {
-    "email": "",
-    "password": ""
-  }
+  "posts2": [
+    {
+      "id": 16,
+      "image": "width8.jpg"
+    },
+    {
+      "id": 17,
+      "image": "width9.jpg"
+    },
+    {
+      "id": 18,
+      "image": "width10.jpg"
+    },
+    {
+      "id": 19,
+      "image": "width11.jpg"
+    },
+    {
+      "id": 20,
+      "image": "width12.jpg"
+    },
+    {
+      "id": 21,
+      "image": "width13.jpg"
+    },
+    {
+      "id": 22,
+      "image": "height.jpg"
+    },
+    {
+      "id": 23,
+      "image": "width9.jpg"
+    },
+    {
+      "id": 24,
+      "image": "width10.jpg"
+    },
+    {
+      "id": 25,
+      "image": "width11.jpg"
+    },
+    {
+      "id": 26,
+      "image": "width12.jpg"
+    },
+    {
+      "id": 27,
+      "image": "width13.jpg"
+    },
+    {
+      "id": 28,
+      "image": "width14.jpg"
+    },
+    {
+      "id": 29,
+      "image": "width11.jpg"
+    },
+    {
+      "id": 30,
+      "image": "width12.jpg"
+    },
+    {
+      "id": 31,
+      "image": "width13.jpg"
+    }
+  ]
 }
