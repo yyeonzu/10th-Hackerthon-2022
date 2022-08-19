@@ -1,22 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Image from '../../static/example.png';
 import { RiSettings4Fill as SettingIcon } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const [profile, setProfile] = useState([]);
+
+  const navigate = useNavigate();
+
+  const getProfile = async () => {
+    await axios
+      .get(`https://jain5379.pythonanywhere.com/users/profile/`)
+      .then((response) => {
+        // console.log(response.data[4]);
+        setProfile(response.data[4]);
+      });
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
   return (
     <Wrapper>
       <ImageWrapper>
         <img src={Image} />
       </ImageWrapper>
       <ContentWrapper>
-        <NameArea>닉네임</NameArea>
+        <NameArea>{profile.nickname}</NameArea>
         <div>
-          <IDArea>@아이디</IDArea>
-          <URLArea>http://url</URLArea>
+          <IDArea>abc0816@naver.com</IDArea>
+          <URLArea
+            rel='external'
+            target='_blank'
+            href='https://www.instagram.com/lityeonzu/'
+          >
+            www.instagram.com/lityeonzu/
+          </URLArea>
         </div>
         <Settings>
           <Button>프로필 편집</Button>
+          <Button
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            로그아웃
+          </Button>
           <SettingIcon color='#eeeeee' size={36} cursor='pointer' />
         </Settings>
       </ContentWrapper>
@@ -60,13 +92,13 @@ const NameArea = styled.div`
 `;
 
 const IDArea = styled.div`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 300;
   color: #b6b4b4;
 `;
 
-const URLArea = styled.div`
-  font-size: 24px;
+const URLArea = styled.a`
+  font-size: 20px;
   font-weight: 300;
   color: #2b8afa;
 `;
@@ -77,11 +109,12 @@ const Settings = styled.div`
 `;
 
 const Button = styled.button`
-  width: 100px;
+  // width: 100px;
+  display: inline-block;
   height: 35px;
   background-color: #ededed;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;

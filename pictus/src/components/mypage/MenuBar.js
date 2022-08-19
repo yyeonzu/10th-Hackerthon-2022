@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import MainBorad from '../mainpage/MainBoard';
+import ScrapArea from './ScrapArea';
 
-const MenuBar = () => {
+const MenuBar = (props) => {
+  const [isCheck, setIsCheck] = useState(true);
+
+  const onCheck = () => {
+    props.setIsFeed(isCheck);
+    props.setIsScrap(!isCheck);
+  };
+
+  const onClick = () => {
+    setIsCheck(!isCheck);
+  };
   return (
     <>
       <Wrapper>
         <DivisionLine></DivisionLine>
-        <MenuButton>피드</MenuButton>
-        <MenuButton>스크랩</MenuButton>
+        <ButtonWrapper>
+          <MenuButton
+            onClick={onClick}
+            className={isCheck ? 'active' : 'false'}
+          >
+            피드
+          </MenuButton>
+          <MenuButton
+            onClick={onClick}
+            className={isCheck ? 'false' : 'active'}
+          >
+            스크랩
+          </MenuButton>
+        </ButtonWrapper>
         <DivisionLine></DivisionLine>
       </Wrapper>
+      {isCheck ? <MainBorad /> : <ScrapArea />}
     </>
   );
 };
@@ -30,6 +55,19 @@ const DivisionLine = styled.div`
   width: 40%;
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+
+  .active {
+    border-bottom: 2px solid #ffb800;
+    color: #ffb800;
+  }
+
+  .false {
+    border-bottom: transparent;
+  }
+`;
+
 const MenuButton = styled.button`
   border: transparent;
   background-color: transparent;
@@ -40,8 +78,4 @@ const MenuButton = styled.button`
   margin-right: 12px;
 
   cursor: pointer;
-  &:focus {
-    color: #ffb800;
-    border-bottom: 2px solid #ffb800;
-  }
 `;
