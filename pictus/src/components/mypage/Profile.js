@@ -15,7 +15,7 @@ const Profile = () => {
       .get(`https://jain5379.pythonanywhere.com/users/profile/`)
       .then((response) => {
         // console.log(response.data[4]);
-        setProfile(response.data[4]);
+        setProfile(response.data[5]);
       });
   };
 
