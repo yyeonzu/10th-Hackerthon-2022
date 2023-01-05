@@ -22,7 +22,7 @@ const LoginBox = (props) => {
     e.preventDefault();
 
     axios
-      .post('https://jain5379.pythonanywhere.com/users/login/', {
+      .post('https://localhost/login/', {
         email: email,
         password: password,
       })

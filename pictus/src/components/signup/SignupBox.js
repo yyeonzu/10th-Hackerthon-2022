@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../../static/logo.svg';
+// import { ReactComponent as Logo } from '../../static/logo.svg';
 
 const SignUpBox = (props) => {
   const [username, setUsername] = useState('');
@@ -16,10 +16,13 @@ const SignUpBox = (props) => {
 
   const RegExp = (str, type) => {
     let REGEX = {
-      USERNAME: /^[가-힣a-zA-Z]{2,8}$/,
-      EMAIL:
-        /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
-      PASSWORD: /^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/,
+      // USERNAME: /^[가-힣a-zA-Z]{2,8}$/,
+      // EMAIL:
+      //   /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+      // PASSWORD: /^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/,
+      USERNAME: /^[가-힣0-9a-zA-Z]{2,8}$/,
+      EMAIL: /^[가-힣0-9a-zA-Z]{2,8}$/,
+      PASSWORD: /^[가-힣0-9a-zA-Z]{2,8}$/,
     };
 
     switch (type) {
@@ -48,21 +51,21 @@ const SignUpBox = (props) => {
     e.preventDefault();
     if (validUsername && validEmail && validPwd && validMatch) {
       alert(username + '\n' + email + '\n' + pwd + '\n' + matchPwd);
-      onBackClick();
+      // onBackClick();
       const data = {};
       axios
-        .post('https://jain5379.pythonanywhere.com/users/register/', {
-          username: username,
+        .post('http://localhost:5500/auth/register', {
+          nickname: username,
+          userID: email,
           password: pwd,
-          password2: matchPwd,
-          email: email,
         })
         .then((response) => {
           console.log(response.data);
           alert('회원가입 성공');
         })
         .catch((error) => {
-          alert('다시 회원가입하세요');
+          console.log(error);
+          console.log('dd');
         });
     } else {
       alert('회원 정보를 다시 확인해주세요');
